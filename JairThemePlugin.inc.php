@@ -41,8 +41,8 @@ class JairThemePlugin extends ThemePlugin {
             return;
         }
 
-        $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDao');
-        $articles =& $publishedArticleDao->getPublishedArticlesByJournalId($journalId = null, $rangeInfo = null, $reverse = false);
+        $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+        $articles =& $publishedArticleDao->getPublishedArticlesByJournalId($journalId = null, $rangeInfo = null, $reverse = true);
         $templateMgr->assign('articles', $articles->toArray());
     }
 }

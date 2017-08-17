@@ -64,10 +64,7 @@
 					Recent Articles
 				</h2>
 			</header>
-			<p class="current_issue_title lead">
-				{$issue->getIssueIdentification()|strip_unsafe_html}
-			</p>
-			{include file="frontend/objects/issue_toc.tpl"}
+			{include file="frontend/objects/article_toc.tpl"}
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
 				{translate key="journal.viewAllIssues"}
 				<span class="glyphicon glyphicon-chevron-right"></span>

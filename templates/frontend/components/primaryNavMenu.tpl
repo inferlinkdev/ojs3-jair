@@ -1,4 +1,4 @@
-
+{*
 * templates/frontend/components/primaryNavMenu.tpl
 *
 * Copyright (c) 2014-2016 Simon Fraser University Library
