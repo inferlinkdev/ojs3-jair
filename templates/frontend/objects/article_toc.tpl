@@ -18,7 +18,7 @@
     {* Articles *}
     {if count($articles)}
 	<div class="media-list">
-	    {foreach from=$articles item=article}
+            {foreach from=$articles|@array_slice:0:5 item=article}
 		{include file="frontend/objects/article_summary.tpl"}
 	    {/foreach}
         </div>
