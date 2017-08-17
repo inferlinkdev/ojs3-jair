@@ -7,9 +7,11 @@ class JairThemePlugin extends ThemePlugin {
      * @return null
      */
     public function init() {
-	$this.setParent('bootstrapthreethemeplugin');
+	$this->setParent('bootstrapthreethemeplugin');
 
         $this->addStyle('stylesheet', 'styles/index.less');
+
+        HookRegistry::register ('TemplateManager::display', array($this, 'loadTemplateData'));
     }
 
     /**
@@ -26,5 +28,21 @@ class JairThemePlugin extends ThemePlugin {
      */
     function getDescription() {
         return __('plugins.themes.jair-theme.description');
+    }
+
+    public function loadTemplateData($hookName, $args) {
+
+        // Retrieve the TemplateManager and the template filename
+        $templateMgr = $args[0];
+        $template = $args[1];
+
+        // Don't do anything if we're not loading the right template
+        if ($template != 'frontend/pages/indexJournal.tpl') {
+            return;
+        }
+
+        $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDao');
+        $articles =& $publishedArticleDao->getPublishedArticlesByJournalId($journalId = null, $rangeInfo = null, $reverse = false);
+        $templateMgr->assign('articles', $articles->toArray());
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE version SYSTEM "../../../lib/pkp/dtd/pluginVersion.dtd">
 <version>
-    <application>jair-theme</application>
+    <application>jair</application>
     <type>plugins.themes</type>
     <release>1.0.0.0</release>
     <date>2017-07-05</date>
