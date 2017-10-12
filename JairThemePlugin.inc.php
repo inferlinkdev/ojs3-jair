@@ -44,5 +44,6 @@ class JairThemePlugin extends ThemePlugin {
         $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
         $articles =& $publishedArticleDao->getPublishedArticlesByJournalId($journalId = null, $rangeInfo = null, $reverse = true);
         $templateMgr->assign('articles', $articles->toArray());
+        $templateMgr->assign('hidePages', true);
     }
 }

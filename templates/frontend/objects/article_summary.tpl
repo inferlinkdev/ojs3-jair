@@ -46,7 +46,7 @@
 			{/if}
 
 			{* Page numbers for this article *}
-			{if $article->getPages()}
+			{if !$hidePages && $article->getPages()}
 				<p class="pages">
 					{$article->getPages()|escape}
 				</p>
