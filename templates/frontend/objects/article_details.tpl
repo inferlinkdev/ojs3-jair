@@ -48,7 +48,6 @@
 			{/if}
 
 			{* Article Galleys *}
-<!--
 			{if $article->getGalleys()}
 				<div class="download">
 					{foreach from=$article->getGalleys() item=galley}
@@ -56,8 +55,7 @@
 					{/foreach}
 				</div>
 			{/if}
--->
-
+<!--
                         {if $primaryGalleys}
 				<div class="item galleys">
 					<ul class="value galleys_links">
@@ -80,7 +78,7 @@
 					</ul>
 				</div>
 			{/if}
-
+-->
 
 
 			<div class="list-group">

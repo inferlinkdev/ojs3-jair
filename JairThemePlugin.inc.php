@@ -37,45 +37,12 @@ class JairThemePlugin extends ThemePlugin {
         $template = $args[1];
 
         // Don't do anything if we're not loading the right template
-        if ($template == 'frontend/pages/indexJournal.tpl') {
-
-          $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
-          $articles =& $publishedArticleDao->getPublishedArticlesByJournalId($journalId = null, $rangeInfo = null, $reverse = true);
-          $templateMgr->assign('articles', $articles->toArray());
+        if ($template != 'frontend/pages/indexJournal.tpl') {
+            return;
         }
 
-
-        if ($template == 'frontend/objects/article_summary.tpl') {
-          $galleys = $article->getGalleys();
-          $primaryGalleys = array();
-          $supplementaryGalleys = array();
-          if ($galleys) {
-            $genreDao = DAORegistry::getDAO('GenreDAO');
-            $primaryGenres = $genreDao->getPrimaryByContextId($journal->getId())->toArray();
-            $primaryGenreIds = array_map(function($genre) {
-                return $genre->getId();
-              }, $primaryGenres);
-            $supplementaryGenres = $genreDao->getBySupplementaryAndContextId(true, $journal->getId())-     >toArray();
-            $supplementaryGenreIds = array_map(function($genre) {
-                return $genre->getId();
-              }, $supplementaryGenres);
-
-            foreach ($galleys as $galley) {
-              $file = $galley->getFile();
-              if (!$file) {
-                continue;
-              }
-              if (in_array($file->getGenreId(), $primaryGenreIds)) {
-                $primaryGalleys[] = $galley;
-              } elseif (in_array($file->getGenreId(), $supplementaryGenreIds)) {
-                $supplementaryGalleys[] = $galley;
-              }
-            }
-                                          }
-            $templateMgr->assign(array(
-              'primaryGalleys' => $primaryGalleys,
-              'supplementaryGalleys' => $supplementaryGalleys,
-            ));
-        }
+        $publishedArticleDao = DAORegistry::getDAO('PublishedArticleDAO');
+        $articles =& $publishedArticleDao->getPublishedArticlesByJournalId($journalId = null, $rangeInfo = null, $reverse = true);
+        $templateMgr->assign('articles', $articles->toArray());
     }
 }

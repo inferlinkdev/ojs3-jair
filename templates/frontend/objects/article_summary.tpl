@@ -51,13 +51,42 @@
 					{$article->getPages()|escape}
 				</p>
 			{/if}
-			<!--
 			<div class="btn-group" role="group">
 				{foreach from=$article->getGalleys() item=galley}
 					{include file="frontend/objects/galley_link.tpl" parent=$article}
 				{/foreach}
 			</div>
-			-->
+<!--
+<ul class="galleys_links">
+	{foreach from=$article->getGalleys() item=galley}
+		{* Skip any files that are NOT from a primary genre *}
+		{if $primaryGenreIds}
+			{assign var="file" value=$galley->getFile()}
+			{if !$file || !in_array($file->getGenreId(), $primaryGenreIds)}
+				{php}continue;{/php}
+			{/if}
+		{/if}
+		<li>
+			{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=true}
+		</li>
+	{/foreach}
+</ul>
+<ul class="galleys_links">
+	{foreach from=$article->getGalleys() item=galley}
+		{* Skip any files that ARE from a primary genre *}
+		{if $primaryGenreIds}
+			{assign var="file" value=$galley->getFile()}
+			{if $file && in_array($file->getGenreId(), $primaryGenreIds)}
+				{php}continue;{/php}
+			{/if}
+		{/if}
+		<li>
+sup:
+			{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=true}
+		</li>
+	{/foreach}
+</ul>
+-->
 			{* Article Galleys *}
 			{if $primaryGalleys}
 				<div class="item galleys">
