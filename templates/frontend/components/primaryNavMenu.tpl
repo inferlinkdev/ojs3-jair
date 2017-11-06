@@ -114,6 +114,11 @@
           News
         </a>
       </li>       
+      <li>
+        <a href="{url router=$smarty.const.ROUTE_PAGE page="faq"}">
+          FAQ
+        </a>
+      </li>       
       {if $currentJournal->getSetting('mailingAddress') || $currentJournal->getSetting('contactName')}
       <li>
         <a href="{url router=$smarty.const.ROUTE_PAGE page="about" op="contact"}">
