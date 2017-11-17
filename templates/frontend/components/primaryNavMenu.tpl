@@ -22,7 +22,8 @@
   {if $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
   <li>
     <a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="current"}">
-      {translate key="navigation.current"}
+      <!--{translate key="navigation.current"}-->
+      CURRENT VOLUME
     </a>
   </li>
   <li>
