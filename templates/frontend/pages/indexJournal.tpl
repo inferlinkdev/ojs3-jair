@@ -66,7 +66,8 @@
 			</header>
 			{include file="frontend/objects/article_toc.tpl"}
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="btn btn-primary read-more">
-				{translate key="journal.viewAllIssues"}
+				<!--{translate key="journal.viewAllIssues"}-->
+                                View All Volumes
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 		</section>
