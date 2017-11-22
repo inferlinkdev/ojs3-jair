@@ -20,14 +20,11 @@
   {if $currentJournal}
 
   {if $currentJournal->getSetting('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
-  <!--
   <li>
     <a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="current"}">
-      <!--{translate key="navigation.current"}-->
-      CURRENT VOLUME
+      {translate key="navigation.current"}
     </a>
   </li>
-  -->
   <li>
     <a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
       {translate key="navigation.archives"}
@@ -35,7 +32,13 @@
   </li>
   {/if}
   <li class="dropdown">
-    <a href="{url router=$smarty.const.ROUTE_PAGE page="awards"}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Award Tracks <span class="caret"></span></a>
+    <!-- jquery code to activate submenus is in footer.tpl -->
+    <a href="{url router=$smarty.const.ROUTE_PAGE page="awards"}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Papers <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+
+      <li class="dropdown-submenu">
+        <a tabindex="-1" href="#" class="submenu">Special Tracks <span class="caret"></span></a>
+
     <ul class="dropdown-menu">
       <li>
         <a href="{url router=$smarty.const.ROUTE_PAGE page="awardedpapers"}">
@@ -47,16 +50,11 @@
           IJCAI-JAIR Best Paper Awards
         </a>
       </li>
-    </ul>
-  </li>
-  <li>
-    <a href="{url router=$smarty.const.ROUTE_PAGE page="surveypapers"}">
-      Surveys
-    </a>
-  </li>
-  <li class="dropdown">
-    <a href="{url router=$smarty.const.ROUTE_PAGE page="awards"}" class="dropdown-toggle" data-toggle="dropdown"            role="button" aria-haspopup="true" aria-expanded="false">Special Tracks <span class="caret"></span></a>
-    <ul class="dropdown-menu">
+      <li>
+        <a href="{url router=$smarty.const.ROUTE_PAGE page="surveypapers"}">
+          Survey Papers Track
+        </a>
+      </li>
       <li>
         <a href="{url router=$smarty.const.ROUTE_PAGE page="specialtrack_ai_society"}">
           Special Track on AI & Society
@@ -98,6 +96,11 @@
         </a>
       </li>
     </ul>
+
+        
+      </li>
+    </ul>
+    
   </li>
   <li class="dropdown">
     <a href="{url router=$smarty.const.ROUTE_PAGE page="about"}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{translate key="navigation.about"} <span class="caret"></span></a>
@@ -138,3 +141,4 @@
   </li>
   {/if}
 </ul>
+
