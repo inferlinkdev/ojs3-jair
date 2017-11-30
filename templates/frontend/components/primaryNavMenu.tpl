@@ -23,8 +23,7 @@
   <!--
   <li>
     <a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="current"}">
-      <!--{translate key="navigation.current"}-->
-      CURRENT VOLUME
+      {translate key="navigation.current"}
     </a>
   </li>
   -->
